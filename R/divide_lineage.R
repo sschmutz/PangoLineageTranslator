@@ -14,7 +14,7 @@ divide_lineage <- function(pango_lineage_full) {
   # GitHub repository
   lineage_alias_key <-
     jsonlite::fromJSON("https://raw.githubusercontent.com/cov-lineages/pango-designation/master/pango_designation/alias_key.json") %>%
-    base::unlist() %>%
+    unlist() %>%
     tibble::as_tibble(rownames = "pango_short") %>%
     dplyr::rename(pango_long = value) %>%
     # remove recombinant lineages

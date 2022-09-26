@@ -11,10 +11,17 @@
 
 divide_lineage <- function(pango_lineage_full) {
   
+  # escape all dots so they are matched as intended using regular expressions
+  lineage_alias_key_regex <-
+    read_alias_key() %>%
+    dplyr::mutate(pango_long_regex = stringr::str_replace_all(pango_long,
+                                                              pattern = "\\.",
+                                                              replacement = "\\\\."))
+  
   pango_lineage_full_tibble <-
     tibble::tibble(pango_lineage_full = pango_lineage_full) %>%
-    fuzzyjoin::fuzzy_left_join(read_alias_key(),
-                               by = c("pango_lineage_full" = "pango_long"),
+    fuzzyjoin::fuzzy_left_join(lineage_alias_key_regex,
+                               by = c("pango_lineage_full" = "pango_long_regex"),
                                match_fun = stringr::str_detect) %>%
     dplyr::bind_rows(tibble::tibble(pango_short = "no_alias", pango_long = pango_lineage_full)) %>%
     # arranging the tibble ensures the order in the table later on

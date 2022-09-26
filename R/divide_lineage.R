@@ -10,20 +10,10 @@
 #' divide_lineage("B.1.1")
 
 divide_lineage <- function(pango_lineage_full) {
-  # read pango lineage abbreviation table directly from the cov-lineages/pango-designation/
-  # GitHub repository
-  lineage_alias_key <-
-    jsonlite::fromJSON("https://raw.githubusercontent.com/cov-lineages/pango-designation/master/pango_designation/alias_key.json") %>%
-    unlist() %>%
-    tibble::as_tibble(rownames = "pango_short") %>%
-    dplyr::rename(pango_long = value) %>%
-    # remove recombinant lineages
-    dplyr::filter(stringr::str_detect(pango_short, "^X", negate = TRUE)) %>%
-    dplyr::filter(pango_long != "")
   
   pango_lineage_full_tibble <-
     tibble::tibble(pango_lineage_full = pango_lineage_full) %>%
-    fuzzyjoin::fuzzy_left_join(lineage_alias_key,
+    fuzzyjoin::fuzzy_left_join(read_alias_key(),
                                by = c("pango_lineage_full" = "pango_long"),
                                match_fun = stringr::str_detect) %>%
     dplyr::bind_rows(tibble::tibble(pango_short = "no_alias", pango_long = pango_lineage_full)) %>%

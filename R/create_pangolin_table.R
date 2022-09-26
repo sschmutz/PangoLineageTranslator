@@ -20,7 +20,8 @@
 
 create_pango_lineage_table <- function(pango_lineage_full_tibble,
                                        color_font="#652624",
-                                       color_background_level_base = "#E69000") {
+                                       color_background_level_base="#E69000") {
+  
   # How many aliases are there? Defines the colored classes of the final table.
   n_aliases <-
     pango_lineage_full_tibble %>%

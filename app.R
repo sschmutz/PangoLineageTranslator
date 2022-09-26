@@ -68,6 +68,8 @@ ui <- fluidPage(
 
 server <- function(input, output) {
   
+  options(shiny.sanitize.errors = FALSE)
+  
   # loading the functions within the R/ directory is not necessary
   # since Shiny 1.5.0
   # see https://shiny.rstudio.com/reference/shiny/1.6.0/loadSupport.html

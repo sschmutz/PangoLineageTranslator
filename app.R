@@ -1,6 +1,9 @@
 library(shiny)
 library(shinythemes)
 library(fontawesome)
+library(tidyverse)
+library(jsonlite)
+library(gt)
 
 pango_alias_key <- a("cov-lineages / pango-designation / pango_designation / alias_key.json", href = "https://github.com/cov-lineages/pango-designation/blob/master/pango_designation/alias_key.json")
 
@@ -29,17 +32,19 @@ ui <- fluidPage(
   
   # text input and action button
   fluidRow(
-    column(6,
-           tags$div(align = "right",
-                    style = "padding-left:0px; padding-right:0px; padding-top:50px; padding-bottom:20px",
+    column(12,
+           tags$div(align = "center",
+                    style = "padding-left:0px; padding-right:0px; padding-top:50px; padding-bottom:0px",
                     textInput(inputId = "lineage",
                               label = NULL,
                               value = "BQ.1.1",
                               width = "100px"))
-    ),
-    column(6,
-           tags$div(align = "left",
-                    style = "padding-left:0px; padding-right:0px; padding-top:50px; padding-bottom:20px",
+    )
+  ),
+  fluidRow(
+    column(12,
+           tags$div(align = "center",
+                    style = "padding-left:0px; padding-right:0px; padding-top:0px; padding-bottom:20px",
                     actionButton(inputId = "translate",
                                  label = "translate")))
   ),

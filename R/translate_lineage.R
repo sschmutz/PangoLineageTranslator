@@ -10,9 +10,16 @@
 #' translate_lineage("B.1.1")
 
 translate_lineage <- function(lineage) {
+  
+  lineage_cleaned <-
+    lineage %>%
+    # remove any non-word character and non-dots from lineage which are possible
+    # copy-paste errors
+    stringr::str_replace_all(pattern = "[^\\w\\.]",
+                             replacement = "")
 
   pango_lineage <-
-    tibble::tibble(pango_lineage = lineage) %>%
+    tibble::tibble(pango_lineage = lineage_cleaned) %>%
     tidyr::separate(pango_lineage, into = c("pango_short", "pango_rest"), sep = "\\.", extra = "merge") %>%
     dplyr::mutate(pango_short = stringr::str_to_upper(pango_short))
   
@@ -26,7 +33,7 @@ translate_lineage <- function(lineage) {
     # in case the given lineage can not be expanded/translated, it is assumed
     # that it's already the full lineage
     message("There is nothing to translate.")
-    pango_lineage_full <- lineage
+    pango_lineage_full <- lineage_cleaned
   }
   
   return(pango_lineage_full)

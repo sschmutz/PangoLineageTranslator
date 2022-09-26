@@ -6,10 +6,23 @@ library(curl)
 
 pango_alias_key <- a("cov-lineages / pango-designation / pango_designation / alias_key.json", href = "https://github.com/cov-lineages/pango-designation/blob/master/pango_designation/alias_key.json")
 
+# set-up to allow pressing the enter key instead of the action button
+# as described here:
+# https://stackoverflow.com/questions/50705288/shiny-using-enter-key-with-action-button-on-login-screen
+js <- '
+$(document).keyup(function(event) {
+  if ($("#lineage").is(":focus") && (event.keyCode == 13)) {
+      $("#translate").click();
+  }
+});
+'
 
 # define UI ---------------------------------------------------------------
 
 ui <- fluidPage(
+  
+  # required for the enter key press
+  tags$script(HTML(js)),
   
   # set theme and define font to match gt table
   theme = shinythemes::shinytheme("paper"),
@@ -37,6 +50,7 @@ ui <- fluidPage(
                     textInput(inputId = "lineage",
                               label = NULL,
                               value = "BQ.1.1",
+                              placeholder = "Enter Lineage",
                               width = "100px"))
     )
   ),
@@ -73,10 +87,15 @@ server <- function(input, output) {
   # loading the functions within the R/ directory is not necessary
   # since Shiny 1.5.0
   # see https://shiny.rstudio.com/reference/shiny/1.6.0/loadSupport.html
-  translation_table <- eventReactive(input$translate, {
-    pango_lineage_full <- translate_lineage(input$lineage)
-    pango_lineage_full_tibble <- divide_lineage(pango_lineage_full)
-    create_pango_lineage_table(pango_lineage_full_tibble)
+  
+  translation_table <- reactive({
+    req(input$translate)
+    
+    isolate({
+      pango_lineage_full <- translate_lineage(input$lineage)
+      pango_lineage_full_tibble <- divide_lineage(pango_lineage_full)
+      create_pango_lineage_table(pango_lineage_full_tibble)
+    })
   })
   
   output$table <-

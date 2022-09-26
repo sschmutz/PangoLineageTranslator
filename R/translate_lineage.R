@@ -23,7 +23,10 @@ translate_lineage <- function(lineage) {
     dplyr::pull(pango_lineage_full)
   
   if (length(pango_lineage_full) == 0) {
+    # in case the given lineage can not be expanded/translated, it is assumed
+    # that it's already the full lineage
     message("There is nothing to translate.")
+    pango_lineage_full <- lineage
   }
   
   return(pango_lineage_full)

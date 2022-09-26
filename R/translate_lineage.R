@@ -13,7 +13,8 @@ translate_lineage <- function(lineage) {
 
   pango_lineage <-
     tibble::tibble(pango_lineage = lineage) %>%
-    tidyr::separate(pango_lineage, into = c("pango_short", "pango_rest"), sep = "\\.", extra = "merge")
+    tidyr::separate(pango_lineage, into = c("pango_short", "pango_rest"), sep = "\\.", extra = "merge") %>%
+    dplyr::mutate(pango_short = stringr::str_to_upper(pango_short))
   
   pango_lineage_full <-
     read_alias_key() %>%

@@ -1,0 +1,28 @@
+Package: PangoLineageTranslator
+Title: Translate and Illustrate Individual Parts of a Full Pango Lineage
+Version: 0.0.0.9000
+Authors@R: 
+    person("Stefan", "Schmutz", , "stefan.schmutz@outlook.com", role = c("aut", "cre"))
+Description:
+    PangoLineageTranslator is a Shiny app which allows you to enter,
+    translate and illustrate an abbreviated SARS-CoV-2 Pango Lineage.
+    The Pango network suggested a nomenclature system which is based on the
+    phylogenetic structure. This app aims to help understanding the nested
+    structure of a Pango Lineage.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.1
+Imports: 
+    curl,
+    dplyr,
+    fontawesome,
+    fuzzyjoin,
+    gt,
+    jsonlite,
+    magrittr,
+    shiny,
+    shinythemes,
+    stringr,
+    tibble,
+    tidyr

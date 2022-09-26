@@ -1,9 +1,8 @@
 library(shiny)
 library(shinythemes)
 library(fontawesome)
-library(tidyverse)
-library(jsonlite)
 library(gt)
+library(curl)
 
 pango_alias_key <- a("cov-lineages / pango-designation / pango_designation / alias_key.json", href = "https://github.com/cov-lineages/pango-designation/blob/master/pango_designation/alias_key.json")
 
@@ -13,7 +12,7 @@ pango_alias_key <- a("cov-lineages / pango-designation / pango_designation / ali
 ui <- fluidPage(
   
   # set theme and define font to match gt table
-  theme = shinytheme("paper"),
+  theme = shinythemes::shinytheme("paper"),
   tags$head(tags$style('body {font-family: Roboto;}')),
   
   # GitHub icon and link in the top-right corner
@@ -21,7 +20,7 @@ ui <- fluidPage(
     column(12, 
            tags$div(align = "right", 
                     a(href = "https://github.com/sschmutz/pango-lineage-translator", 
-                      h4(fa("github", fill = "#B9BABD"))
+                      h4(fontawesome::fa("github", fill = "#B9BABD"))
                     )
            )
     )

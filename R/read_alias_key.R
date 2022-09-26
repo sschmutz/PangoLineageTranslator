@@ -15,7 +15,7 @@ read_alias_key <- function(link="https://raw.githubusercontent.com/cov-lineages/
   # read pango lineage abbreviation table directly from the cov-lineages/pango-designation/
   # GitHub repository
   lineage_alias_key <-
-    jsonlite::fromJSON("https://raw.githubusercontent.com/cov-lineages/pango-designation/master/pango_designation/alias_key.json") %>%
+    jsonlite::fromJSON(link) %>%
     unlist() %>%
     tibble::as_tibble(rownames = "pango_short") %>%
     dplyr::rename(pango_long = value)

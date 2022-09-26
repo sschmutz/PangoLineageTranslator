@@ -40,7 +40,9 @@ ui <- fluidPage(
   ),
   
   # application title
-  tags$div(align = "center", titlePanel(div(HTML("<em>Pango</em> Lineage Translator")))),
+  tags$div(align = "center", titlePanel(
+    title = div(HTML("<em>Pango</em> Lineage Translator")),
+    windowTitle = "Pango Lineage Translator")),
   
   # text input and action button
   fluidRow(

@@ -96,7 +96,8 @@ server <- function(input, output) {
     isolate({
       pango_lineage_full <- translate_lineage(input$lineage)
       pango_lineage_full_tibble <- divide_lineage(pango_lineage_full)
-      create_pango_lineage_table(pango_lineage_full_tibble)
+      color_vector <- VOC_color(pango_lineage_full)
+      create_pango_lineage_table(pango_lineage_full_tibble, color_vector)
     })
   })
   

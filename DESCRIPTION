@@ -1,6 +1,6 @@
 Package: PangoLineageTranslator
 Title: Translate and Illustrate Individual Parts of a Full Pango Lineage
-Version: 0.0.0.9000
+Version: 1.0.0
 Authors@R: 
     person("Stefan", "Schmutz", , "stefan.schmutz@outlook.com", role = c("aut", "cre"))
 Description:

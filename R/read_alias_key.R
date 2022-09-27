@@ -1,6 +1,8 @@
 #' Read and prepare pango designation aliases
 #' 
-#' @param lineage Abbreviated pango lineage.
+#' @param link Link to alias_key.json from the pango_designation repository.
+#' @param remove_recombinants Logical, if recombinant aliases should be omitted.
+#' @param remove_empty_translations Logical, if original haplotypes (empty translations) should be omitted.
 #' @return tibble containing columns pango_short and pango_long which can be used
 #' to translate pango lineages.
 #' @examples
@@ -8,9 +10,9 @@
 #' read_alias_key(remove_recombinants=FALSE)
 #' read_alias_key(remove_empty_translations=FALSE)
 
-read_alias_key <- function(link="https://raw.githubusercontent.com/cov-lineages/pango-designation/master/pango_designation/alias_key.json",
-                           remove_recombinants=TRUE,
-                           remove_empty_translations=TRUE) {
+read_alias_key <- function(link = "https://raw.githubusercontent.com/cov-lineages/pango-designation/master/pango_designation/alias_key.json",
+                           remove_recombinants = TRUE,
+                           remove_empty_translations = TRUE) {
   
   # read pango lineage abbreviation table directly from the cov-lineages/pango-designation/
   # GitHub repository

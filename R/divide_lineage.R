@@ -1,13 +1,10 @@
 #' Divide full pango lineage into individual parts
 #' 
-#' @param pango_lineage_full Full sting of pango lineage without aliases.
+#' @param pango_lineage_full Full string of pango lineage without aliases.
 #' @return Tibble containing individual parts of the full pango lineage.
 #' @examples
 #' divide_lineage("B.1.1.529.5.3.1.1.1.1.1.1")
-#' divide_lineage("B.1.1.529.5.3.1.1.1.1")
-#' divide_lineage("B.1.1.529.5.2.1.1")
-#' divide_lineage("B.1.466.2.5.1")
-#' divide_lineage("B.1.1")
+#' divide_lineage("B.1.617.2.2")
 
 divide_lineage <- function(pango_lineage_full) {
   

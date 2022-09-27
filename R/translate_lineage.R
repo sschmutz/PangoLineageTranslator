@@ -4,10 +4,7 @@
 #' @return Full sting of pango lineage without aliases.
 #' @examples
 #' translate_lineage("BQ.1.1")
-#' translate_lineage("BE.1.1.1")
-#' translate_lineage("BF.1")
-#' translate_lineage("AU.5.1")
-#' translate_lineage("B.1.1")
+#' translate_lineage("AY.2")
 
 translate_lineage <- function(lineage) {
   

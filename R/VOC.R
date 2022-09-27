@@ -12,4 +12,4 @@
 #'   \item{color_background_level_base}{chr Hex color code used for the background}
 #' }
 #' @source \url{https://www.who.int/activities/tracking-SARS-CoV-2-variants}
-"VOC"
+load(file = here::here("data", "VOC.rda"))

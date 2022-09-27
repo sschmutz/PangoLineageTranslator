@@ -9,8 +9,8 @@
 
 The [*Pango* Lineage Translator
 App](https://sschmutz.shinyapps.io/PangoLineageTranslator/) was inspired
-by a series of similar tweets making fun of the growing length of the
-full SARS-CoV-2 Pango Lineage names. For example:
+by a series of similar tweets making fun of the growing length of full
+SARS-CoV-2 Pango Lineage names. For example:
 
 <div>
 
@@ -22,7 +22,7 @@ full SARS-CoV-2 Pango Lineage names. For example:
 <br>
 
 These two names do indeed describe the same Pango Lineage and are
-synonyms only that the short form uses [defined
+synonyms, only that the short form uses [defined
 aliases](https://github.com/cov-lineages/pango-designation/blob/master/pango_designation/alias_key.json)
 to abbreviate the long form.
 
@@ -36,9 +36,9 @@ The side effect of such a nomenclature system is that:
 and  
 - the non-abbreviated names get pretty long.
 
-Here is where this App tries to bring everything together and
-interactively illustrate the ancestry of abbreviated Pango Lineage names
-by highlighting all the aliases of the full name.
+Here is where this App tries to bring everything together and illustrate
+the ancestry of abbreviated Pango Lineage names by highlighting all the
+aliases of the full name.
 
 ## How it works
 

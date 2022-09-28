@@ -13,7 +13,10 @@ divide_lineage <- function(pango_lineage_full) {
     read_alias_key() %>%
     dplyr::mutate(pango_long_regex = stringr::str_replace_all(pango_long,
                                                               pattern = "\\.",
-                                                              replacement = "\\\\."))
+                                                              replacement = "\\\\.")) %>%
+    # end of a match must be either "end of string" or a dot
+    # this avoids matching B.1.1.70 to B.1.1.7
+    dplyr::mutate(pango_long_regex = paste0(pango_long_regex, "(\\.|$)"))
   
   pango_lineage_full_tibble <-
     tibble::tibble(pango_lineage_full = pango_lineage_full) %>%

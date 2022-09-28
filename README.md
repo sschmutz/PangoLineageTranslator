@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# *Pango* Lineage Translator <a href='https://sschmutz.shinyapps.io/PangoLineageTranslator/'><img src='man/figures/README-app-screenshot-1.png' align="right" height="200px" /></a>
+# *Pango* Lineage Translator <a href='https://sschmutz.shinyapps.io/PangoLineageTranslator/'><img src='man/figures/logo.png' align="right" height="200px" /></a>
 
 <br> <br> <br>
 
@@ -39,6 +39,13 @@ and
 Here is where this App tries to bring everything together and illustrate
 the ancestry of abbreviated Pango Lineage names by highlighting all the
 aliases of the full name.
+
+<div align="left">
+
+<a href='https://sschmutz.shinyapps.io/PangoLineageTranslator/'>
+<img src="man/figures/README-app-screenshot-1.png" width="500px"> </a>
+
+</div>
 
 ## How it works
 

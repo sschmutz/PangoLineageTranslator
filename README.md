@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# *Pango* Lineage Translator <a href='https://sschmutz.shinyapps.io/PangoLineageTranslator/'><img src='man/figures/logo.png' align="right" height="200px" /></a>
+# *Pango* Lineage Translator <a href='https://sschmutz.shinyapps.io/PangoLineageTranslator/'><img src='man/figures/logo.png' align="right" height="180px" /></a>
 
 <br> <br> <br>
 

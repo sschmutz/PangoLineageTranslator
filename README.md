@@ -3,7 +3,7 @@
 
 # *Pango* Lineage Translator <a href='https://sschmutz.shinyapps.io/PangoLineageTranslator/'><img src='man/figures/logo.png' align="right" height="180px" /></a>
 
-<br> <br> <br>
+Understand the hierarchical structure of Pango-lineage names. <br> <br>
 
 ## Background
 

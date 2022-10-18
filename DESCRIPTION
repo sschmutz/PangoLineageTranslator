@@ -19,6 +19,7 @@ Imports:
     fontawesome,
     fuzzyjoin,
     gt,
+    htmltools,
     jsonlite,
     magrittr,
     shiny,

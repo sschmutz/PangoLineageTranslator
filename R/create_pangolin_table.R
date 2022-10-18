@@ -36,6 +36,15 @@ create_pango_lineage_table <- function(pango_lineage_full_tibble, color_vector) 
   # max factor as defined in gt::adjust_luminance() documentation
   color_step_max <- 2
   
+  # get the full pango lineage to create cov-spectrum link
+  pango_lineage_full <-
+    pango_lineage_full_tibble %>%
+    dplyr::pull(pango_long_relevant) %>%
+    stringr::str_flatten()
+  
+  cov_spectrum_link <-
+    paste0("https://cov-spectrum.org/explore/Switzerland/AllSamples/Past6M/variants?nextcladePangoLineage=", pango_lineage_full, "*&")
+  
   translation_table <-
     pango_lineage_full_tibble %>%
     tidyr::pivot_wider(names_from = pango_short, values_from = pango_long_relevant) %>%
@@ -43,6 +52,12 @@ create_pango_lineage_table <- function(pango_lineage_full_tibble, color_vector) 
     gt::cols_label(.list = cols_label_list) %>%
     gt::cols_align(align = "center") %>%
     gt::opt_table_lines(extent = "none") %>%
+    gt::tab_footnote(footnote = htmltools::a(href = cov_spectrum_link, 
+                                             style = paste0("color: ", color_vector[["background_level_base"]]),
+                                             htmltools::h4("cov-spectrum", style = paste0("color: ", color_vector[["background_level_base"]], ";",
+                                                                                          "font-style: italic;",
+                                                                                          "font-weight: 500;",
+                                                                                          "font-size: 80%;")))) %>%
     gt::tab_options(table.font.color = color_vector[["font"]],
                     column_labels.padding = 2,
                     data_row.padding = 2,

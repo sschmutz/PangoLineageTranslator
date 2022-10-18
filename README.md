@@ -87,7 +87,9 @@ as
 Lastly, a [gt table](https://gt.rstudio.com/) is put together with
 nested [spanner column
 labels](https://gt.rstudio.com/reference/tab_spanner.html) for each
-alias.
+alias and a direct link to
+[cov-spectrum](https://cov-spectrum.org/explore/Switzerland/AllSamples/Past6M)
+as footnote where one can find more details about the selected lineage.
 
 ``` r
 create_pango_lineage_table(pango_lineage_full_tibble, color_vector)
